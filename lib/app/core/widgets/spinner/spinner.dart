@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:numpedriversapp/app/core/theme/theme.dart';
 
 class AppSpinner extends StatelessWidget {
   const AppSpinner({super.key});
@@ -6,8 +7,8 @@ class AppSpinner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SizedBox(
-      width: 40,
-      height: 40,
+      width: AppMetrics.spinnerSize,
+      height: AppMetrics.spinnerSize,
       child: CircularProgressIndicator(
         strokeWidth: 2,
         color: Colors.blue,

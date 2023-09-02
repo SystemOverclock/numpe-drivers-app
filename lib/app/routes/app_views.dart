@@ -1,7 +1,9 @@
-import 'package:numpedriversapp/app/modules/auth/bindings/auth_bindings.dart';
-import 'package:numpedriversapp/app/modules/auth/presentation/view/auth_view.dart';
+import 'package:numpedriversapp/app/modules/history/bindings/history_bindings.dart';
+import 'package:numpedriversapp/app/modules/history/presentation/view/history_view.dart';
 import 'package:numpedriversapp/app/modules/home/bindings/home_bindings.dart';
 import 'package:numpedriversapp/app/modules/home/presentation/view/home_view.dart';
+import 'package:numpedriversapp/app/modules/menu/bindings/menu_bindings.dart';
+import 'package:numpedriversapp/app/modules/menu/presentation/view/menu_view.dart';
 import 'package:numpedriversapp/app/modules/splash/bindings/splash_binding.dart';
 import 'package:numpedriversapp/app/modules/splash/presentation/view/splash_view.dart';
 import 'package:get/get.dart';
@@ -17,16 +19,19 @@ class AppViews {
       binding: SplashBinding(),
     ),
     GetPage(
+      name: _Paths.menu,
+      page: () => const MenuView(),
+      binding: MenuBinding(),
+    ),
+    GetPage(
       name: _Paths.home,
       page: () => const HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(
-      name: _Paths.auth,
-      page: () => const AuthView(),
-      fullscreenDialog: true,
-      transition: Transition.fadeIn,
-      binding: AuthBinding(),
-    )
+      name: _Paths.history,
+      page: () => const HistoryView(),
+      binding: HistoryBinding(),
+    ),
   ];
 }

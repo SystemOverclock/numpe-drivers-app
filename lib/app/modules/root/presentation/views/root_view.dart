@@ -21,8 +21,7 @@ class RootView extends StatelessWidget {
     return Obx(
       () => GetMaterialApp(
         title: appName!,
-        builder:
-            LoadingIndicator.init(status: controller.appLoadingStatus.value),
+        builder: LoadingIndicator.init(status: controller.appLoadingStatus.value),
         debugShowCheckedModeBanner: false,
         theme: AppTheme.light(context),
         locale: context.locale,
@@ -30,8 +29,7 @@ class RootView extends StatelessWidget {
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         getPages: AppViews.routes,
-        initialRoute:
-            DebugMode.isActive(onTrue: Routes.auth, onFalse: Routes.splash),
+        initialRoute: DebugMode.isActive(onTrue: Routes.menu, onFalse: Routes.splash),
       ),
     );
   }

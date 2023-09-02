@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoadingIndicator {
-  static TransitionBuilder init(
-      {TransitionBuilder? builder, required bool status}) {
+  static TransitionBuilder init({TransitionBuilder? builder, required bool status}) {
     return (BuildContext context, Widget? child) {
       Widget loading = LoadingScreenOverlay(
         status: status,
@@ -22,8 +21,7 @@ class LoadingScreenOverlay extends StatelessWidget {
   final Widget child;
   final bool status;
 
-  const LoadingScreenOverlay(
-      {super.key, required this.child, required this.status});
+  const LoadingScreenOverlay({super.key, required this.child, required this.status});
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +33,7 @@ class LoadingScreenOverlay extends StatelessWidget {
             child,
             status
                 ? Container(
+                    decoration: const BoxDecoration(color: Colors.white),
                     width: Get.size.width,
                     height: Get.size.height,
                     child: const Column(

@@ -31,3 +31,7 @@ macos/
 windows/
 test/
 web/
+firebase_options.dart
+google-services.json
+firebase_app_id_file.json
+GoogleService-Info.plist
