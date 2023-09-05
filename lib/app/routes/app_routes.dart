@@ -5,6 +5,7 @@ abstract class Routes {
   static const splash = _Paths.splash;
   static const menu = _Paths.menu;
   static const home = _Paths.home;
+  static const rate = _Paths.rate;
   static const history = _Paths.history;
 }
 
@@ -12,5 +13,6 @@ abstract class _Paths {
   static const splash = '/splash';
   static const menu = '/menu';
   static const home = '/home';
+  static const rate = '/rate';
   static const history = '/history';
 }

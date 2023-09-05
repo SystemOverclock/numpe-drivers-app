@@ -4,6 +4,8 @@ import 'package:numpedriversapp/app/modules/home/bindings/home_bindings.dart';
 import 'package:numpedriversapp/app/modules/home/presentation/view/home_view.dart';
 import 'package:numpedriversapp/app/modules/menu/bindings/menu_bindings.dart';
 import 'package:numpedriversapp/app/modules/menu/presentation/view/menu_view.dart';
+import 'package:numpedriversapp/app/modules/rate/bindings/rate_bindings.dart';
+import 'package:numpedriversapp/app/modules/rate/presentation/view/rate_view.dart';
 import 'package:numpedriversapp/app/modules/splash/bindings/splash_binding.dart';
 import 'package:numpedriversapp/app/modules/splash/presentation/view/splash_view.dart';
 import 'package:get/get.dart';
@@ -16,6 +18,8 @@ class AppViews {
     GetPage(
       name: _Paths.splash,
       page: () => const SplashView(),
+      fullscreenDialog: true,
+      transition: Transition.fadeIn,
       binding: SplashBinding(),
     ),
     GetPage(
@@ -27,6 +31,11 @@ class AppViews {
       name: _Paths.home,
       page: () => const HomeView(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.rate,
+      page: () => const RateView(),
+      binding: RateBinding(),
     ),
     GetPage(
       name: _Paths.history,

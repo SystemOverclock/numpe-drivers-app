@@ -1,16 +1,15 @@
 class User {
   String? id;
   List? history;
+  List? travels;
 
-  User({
-    this.id,
-    this.history,
-  });
+  User({this.id, this.history, this.travels});
 
   Map<String, dynamic> toMap() {
     return {
       'userId': id,
       'history': history,
+      'travels': travels,
     };
   }
 
@@ -18,6 +17,7 @@ class User {
     return User(
       id: json['userId'] as String?,
       history: json['history'] as List?,
+      travels: json['travels'] as List?,
     );
   }
 }

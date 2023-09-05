@@ -1,3 +1,8 @@
 {
-    "title": "Teste"
+    "noTripData": "No travels found",
+    "noHistoryData": "No history found",
+    "comment": "Leave a comment about how was your trip",
+    "error": "Error",
+    "success": "Success",
+    "successRate": "Rating saved successfully!"
 }

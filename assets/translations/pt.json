@@ -1,3 +1,8 @@
 {
-    "title": "Teste"
+    "noTripData": "Nenhum corrida localizada",
+    "noHistoryData": "Nenhum histórico encontrado",
+    "comment": "Deixe um comentário sobre como foi sua corrida",
+    "error": "Error",
+    "success": "Sucesso",
+    "successRate": "Avaliação salva com sucesso!"
 }

@@ -7,7 +7,7 @@ class MenuBinding extends Bindings {
   @override
   void dependencies() {
     Get.put<AppMenuController>(AppMenuController());
-    Get.lazyPut(() => HomeController());
-    Get.lazyPut(() => HistoryController());
+    Get.put<HomeController>(HomeController());
+    Get.put<HistoryController>(HistoryController());
   }
 }

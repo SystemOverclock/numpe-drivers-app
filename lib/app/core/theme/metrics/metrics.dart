@@ -8,6 +8,10 @@ class AppMetrics {
   static const double paddingXXL = 100;
   static const double logoWidth = 150;
   static const double driversPicture = 30;
+  static const double rateDriversPicture = 40;
+  static const double rateDriversPictureWidth = 80;
   static const double trailingSize = 50;
   static const double menuIconSize = 30;
+  static const double contentBorder = 10;
+  static const double rateCloseButton = 70;
 }

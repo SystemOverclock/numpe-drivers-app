@@ -1,3 +1,8 @@
 {
-    "title": "Teste"
+    "noTripData": "No se encontraron viajes",
+    "noHistoryData": "No se encontró ningún historial",
+    "comment": "Deja un comentario sobre tu viaje",
+    "error": "Error",
+    "success": "Éxito",
+    "successRate": "¡Calificación guardada exitosamente!"
 }

@@ -11,7 +11,7 @@ class RootController extends GetxController {
   final RxBool appLoadingStatus = false.obs;
   // Package platform information
   late PackageInfo packageInfo;
-  late User? user;
+  late User user = User();
 
   Future<void> loadEnvironmentVariables() async {
     final String flavor = await Flavors.setEnvironment(packageName);
@@ -21,16 +21,26 @@ class RootController extends GetxController {
 
   @override
   void onInit() async {
-    packageInfo = await PackageInfo.fromPlatform();
-    packageName = packageInfo.packageName;
-    await loadEnvironmentVariables();
-    if (GetStorage().hasData("userId")) {
-      user = User(id: GetStorage().read("userId"), history: GetStorage().read("history"));
-    } else {
-      var tempUserId = await FirebaseFirestore.instance.collection("users").add({'history': []});
-      GetStorage().write("userId", tempUserId.path.split('/')[1]);
-      GetStorage().write("history", []);
-      user = User(id: tempUserId.path.split('/')[1], history: []);
+    try {
+      packageInfo = await PackageInfo.fromPlatform();
+      packageName = packageInfo.packageName;
+      await loadEnvironmentVariables();
+      if (GetStorage().hasData(AppConst.userId)) {
+        user = User(
+            id: GetStorage().read(AppConst.userId),
+            history: GetStorage().read(AppConst.history),
+            travels: GetStorage().read(AppConst.travels));
+      } else {
+        var tempUserId = await FirebaseFirestore.instance
+            .collection(AppConst.users)
+            .add({AppConst.history: [], AppConst.travels: []});
+        await GetStorage().write(AppConst.userId, tempUserId.path.split('/')[1]);
+        await GetStorage().write(AppConst.history, []);
+        await GetStorage().write(AppConst.travels, []);
+        user = User(id: tempUserId.path.split('/')[1], history: [], travels: []);
+      }
+    } catch (e) {
+      DebugMode.showOnLog(e.toString(), isException: true, className: RootController);
     }
     super.onInit();
   }

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:numpedriversapp/app/core/widgets/spacing/spacing.dart';
@@ -17,9 +18,15 @@ class HistoryView extends GetView<HistoryController> {
             child: SizedBox(
               width: Get.width,
               child: Obx(
-                () => ListView(
-                  controller: controller.listController,
-                  children: controller.driversActivity,
+                () => RefreshIndicator(
+                  onRefresh: () => controller.updateHistory(),
+                  child: ListView(
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    controller: controller.listController,
+                    children: controller.historyList.isNotEmpty
+                        ? controller.historyList
+                        : [Center(child: const Text("noHistoryData").tr())],
+                  ),
                 ),
               ),
             ),

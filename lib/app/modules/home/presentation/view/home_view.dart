@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:numpedriversapp/app/core/widgets/spacing/spacing.dart';
@@ -19,11 +20,18 @@ class HomeView extends GetView<HomeController> {
           AppSpacing(),
           Expanded(
             child: SizedBox(
+              height: Get.height * 0.5,
               width: Get.width,
               child: Obx(
-                () => ListView(
-                  controller: controller.listController,
-                  children: controller.driversActivity,
+                () => RefreshIndicator(
+                  onRefresh: () => controller.updateTravels(),
+                  child: ListView(
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    controller: controller.listController,
+                    children: controller.tripsList.isNotEmpty
+                        ? controller.tripsList
+                        : [Center(child: const Text("noTripData").tr())],
+                  ),
                 ),
               ),
             ),
